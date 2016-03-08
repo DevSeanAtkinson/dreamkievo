@@ -1,16 +1,12 @@
 var app = angular.module('ngTodo', []);
 
-app.controller('TodoController', function($scope){
- $scope.todoList = ['Old Salty Sean [Shadow Jago/Omen]',
-                  'Rico Suave [Shadow Jago/Omen]',
-                  'C88 mygod [Saberwulf]',
-                  'Swordsman09 [Cinder]',
-                  'Sleep ns [Kan-Ra]',
-                  '[Saberwulf]',
-                  '[Aria]',
-                  '[Glacius]'];
+app.controller('WinnersController', function($scope){
+ $scope.todoList = ['Old Salty Sean [Shadow Jago/Omen/Spinal]',
+                  'Rico Suave [Fulgore/Thunder/Glacius/Omen/Spinal)]',
+                  'Maximillion d00d [Fulgore]',
+                  'Swordsman09 [Cinder]'];
 
-    $scope.saveTodo = function(){
+$scope.saveTodo = function(){
       var todoInfo = $scope.currentTodo;
       $scope.todoList.push(todoInfo);
       $scope.currentTodo="";
@@ -23,9 +19,42 @@ $scope.removeTodo = function(singleTodo){
 
 
 $scope.editTodo = function(singleTodo){
-  $scope.currentTodo = singleTodo;
-  $scope.removeTodo(singleTodo);
+    var index = $scope.todoList.indexOf(singleTodo);
+    $scope.todoList.splice(index,1,$scope.currentTodo);
+    $scope.currentTodo = '';
+  }
+
+$scope.moveup = function(singleTodo){
+  var index = $scope.todoList.indexOf(singleTodo);
+  $scope.todoList.splice(index, 1);
+  $scope.todoList.splice(index-1, 0, singleTodo);
 }
+
+});
+
+app.controller('LoserController', function($scope){
+ $scope.todoList = ['Sleep NS [Kan-Ra]',
+                    'YOMI.RM|Saltface [Orchid]',
+                    'Pink Diamond [Maya]',
+                    'UA|mygod [Saberwulf]'];
+
+$scope.saveTodo = function(){
+      var todoInfo = $scope.currentTodo;
+      $scope.todoList.push(todoInfo);
+      $scope.currentTodo="";
+    }
+
+$scope.removeTodo = function(singleTodo){
+    var index = $scope.todoList.indexOf(singleTodo);
+    $scope.todoList.splice(index, 1);
+}
+
+
+$scope.editTodo = function(singleTodo){
+    var index = $scope.todoList.indexOf(singleTodo);
+    $scope.todoList.splice(index,1,$scope.currentTodo);
+    $scope.currentTodo = '';
+  }
 
 $scope.moveup = function(singleTodo){
   var index = $scope.todoList.indexOf(singleTodo);

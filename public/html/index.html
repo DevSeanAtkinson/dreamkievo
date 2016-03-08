@@ -9,20 +9,61 @@
   body {
     margin-top: 70px;
     margin-left: 40px;
+     background: url(http://testyourmight.com/attachments/evo_logo_png_large-png.10457/) right bottom no-repeat, url(http://www.fdmk.net/gallery/encyclopedia/games/ki_logo.png) right top no-repeat, url(http://vignette3.wikia.nocookie.net/deathbattle/images/0/07/Fulgore.png/revision/latest?cb=20150223200235) left bottom no-repeat;
+    right bottom no-repeat;
+    background-color: #343741;
   }
   .no-dot{
     list-style: none;
   }
+
+  .button {
+    background-color: #3DDEFF;
+    }
+
+    .btn-danger {
+      background-color: #848794;
+      border: #00ffff;
+    }
+
 </style>
 </head>
 <body>
- <div class="container" ng-controller= 'TodoController'>
+
+<h1 style=" font-family: impact;
+  margin-left: 300px;
+  font-size: 80px;
+  font-weight: 400;
+  color: #e0eff2;
+  padding-bottom: 20px;
+  text-shadow: -4px 3px 0 #3a50d9, -14px 7px 0 #0a0e27;">Killer Instinct Top Eight</h1>
+
+  <br><br>
+
+ <div class="container" ng-controller= 'WinnersController'>
+   <div class="row">
+      <div class="col-md-6 col-sm-12">
+      </div>
+   </div>
+   <div class="row"></div>
+     <div class="col-md-6 col-sm-12">
+       <ul>
+         <li class = 'well' ng-repeat='singleTodo in todoList'>
+           {{ singleTodo }}
+           <button class="btn btn-danger btn-sm pull-right" ng-click='removeTodo(singleTodo)'>X</button>
+         </li>
+       </ul>
+     </div>
+ </div>
+ <div class="container" ng-controller= 'LoserController'>
    <div class="row">
       <div class="col-md-6 col-sm-12">
         <div class="form-group">
           <input type="text" class="form-control"
-          placeholder="Add New Addition From Winners" ng-model='currentTodo'>
+          style="margin-left: 27px; text-align: center;"
+          placeholder="Dropping To Losers" ng-model='currentTodo'>
           <button class="btn btn-primary btn-block"
+          style="margin-left: 27px;"
           ng-click='saveTodo()' type="button">Save Bracket</button>
         </div>
       </div>
@@ -32,13 +73,11 @@
        <ul>
          <li class = 'well' ng-repeat='singleTodo in todoList'>
            {{ singleTodo }}
-           <button class="btn-info btn-sm" ng-click='editTodo(singleTodo)'>Edit</button>
-           <button class="btn btn-danger btn-sm" ng-click='removeTodo(singleTodo)'>X</button>
+           <button class="btn btn-danger btn-sm pull-right" ng-click='removeTodo(singleTodo)'>X</button>
          </li>
        </ul>
      </div>
  </div>
-
 
 <script src='js/app.js'></script>
 
