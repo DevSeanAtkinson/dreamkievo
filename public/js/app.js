@@ -2,8 +2,8 @@ var app = angular.module('ngTodo', []);
 
 app.controller('WinnersController', function($scope){
  $scope.todoList = ['Old Salty Sean [Shadow Jago/Omen/Spinal]',
-                  'Rico Suave [Fulgore/Thunder/Glacius/Omen/Spinal)]',
-                  'Maximillion d00d [Fulgore]',
+                  'Maximillion d00d [Fulgore/Saberwulf]',
+                  'Rico Suave [Fulgore/Thunder/Glacius/Omen/Spinal]',
                   'Swordsman09 [Cinder]'];
 
 $scope.saveTodo = function(){
